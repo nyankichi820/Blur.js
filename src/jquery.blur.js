@@ -113,8 +113,10 @@
 			return _this;
 		} else {
 			var ctx = canvas.getContext('2d'),
-					tempImg = new Image();
-
+			tempImg = new Image();
+      if(formattedSource.match(/http:\/\/|https:\/\//)){
+            tempImg.setAttribute('crossorigin', 'anonymous');
+      }
 			tempImg.onload = function() {
 				var blurredData;
 				canvas.style.display = "none";
